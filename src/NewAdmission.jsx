@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { useState } from "react"
 import Navbar from "./Navbar"
-import FormLogin from "./form"
+import FormLogin from "./Form.jsx"
 import openRazorpay from "./Razorpay"
 import { useForm } from "react-hook-form";
 

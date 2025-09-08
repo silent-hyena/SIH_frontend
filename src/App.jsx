@@ -1,12 +1,7 @@
 import './App.css'
-// import { useState } from 'react'
-
-
-
-
 
 import { Routes, Route } from 'react-router-dom'
-// import FormLogin from './Form.jsx'
+
 import NewAdmission from './NewAdmission.jsx'
 import Home from './Home.jsx'
 
