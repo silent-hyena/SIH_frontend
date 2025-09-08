@@ -22,7 +22,7 @@ export default async function openRazorpay(amount, student) {
 
   try {
     // Call backend to create Razorpay order
-    const response = await fetch("http://localhost:3000/makepayment/create-order", {
+    const response = await fetch("https://api-erp-service.onrender.com/makepayment/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount: amount, currency: "INR" }), // multiply by 100
@@ -52,7 +52,7 @@ export default async function openRazorpay(amount, student) {
       handler: async function (response) {
         try {
           const verifyRes = await fetch(
-            "http://localhost:3000/makepayment/verify-payment",
+            "https://api-erp-service.onrender.com/makepayment/verify-payment",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
