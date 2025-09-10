@@ -33,7 +33,7 @@ function NewAdmission() {
     }
     async function handleFormSubmit(data) {
         // console.log(data);
-        const response = await fetch("http://localhost:3000/formsubmit", {
+        const response = await fetch("https://site--sih-project-backend-service--kg8rzzj68k4g.code.run/formsubmit", {
             method: "POST",
             headers: { "Content-Type": "application/json" }, // send JSON
             body: JSON.stringify(data), // form fields -> JSON string
