@@ -1,15 +1,21 @@
 import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { BsHouse } from "react-icons/bs";
 
 
 function Navbar() {
 
     return (
         <>
-            <nav className="navbar navbar-expand-md   m-0">
-                <div className="container-fluid ">
-                    {/* <a className="navbar-brand" href="#">Home</a> */}
-                    <strong><Link className="navbar-brand" to="/home">Home</Link></strong>
-                    
+            <nav className="navbar navbar-expand-md shadow-sm  m-0">
+                <div className="container-fluid">
+
+                    <strong>
+
+                        <Link className="navbar-brand" to="/home">
+                            <FaHome size={28} className="mb-1 pe-1" /></Link>
+                    </strong>
+
 
 
                     {/* Toggler (for mobile) */}
@@ -24,7 +30,7 @@ function Navbar() {
                             <li className="nav-item dropdown">
                                 {/* <Link className="nav-link" to="/Admissions">Admissions</Link> */}
                                 <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admissions</a>
-                                
+
                                 <ul className="dropdown-menu dropdown-menu-end">
 
                                     <Link className="dropdown-item" to="/newAdmission">Apply For New Admission</Link>
@@ -78,7 +84,7 @@ function Navbar() {
                             <li className="nav-item dropdown" >
                                 <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Useful Link</a>
                                 <ul className="dropdown-menu dropdown-menu-end">
-                                    
+
                                     <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
 
                                 </ul>

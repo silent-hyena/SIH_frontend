@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import NewAdmission from './NewAdmission.jsx'
 import Home from './Home.jsx'
-
+import AdminPage from './AdminPage.jsx'
 
 function App() {
   

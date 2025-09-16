@@ -1,17 +1,19 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import AutoDismissAlert from "./AutoDismissedAlert";
 
-function FormLogin({formData}) {
+
+function FormLogin() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    formData(data)
-    // console.log("✅ Form Data:", data);
-    alert("Form submitted successfully!");
-  };
+  // const onSubmit = (data) => {
+  //   formData(data)
+
+  // };
 
   // list of common branches
   const branches = [
@@ -23,7 +25,7 @@ function FormLogin({formData}) {
     "Civil Engineering",
     "Chemical Engineering",
     "Mathematics & Computing",
-  
+
   ];
 
   // list of Indian states (simplified, you can extend)
@@ -60,11 +62,32 @@ function FormLogin({formData}) {
     "West Bengal",
   ];
 
+  const [alert, setAlert] = useState(false)
+  const [alertMessage, setAlertMessage] = useState(null)
+
+  async function handleFormSubmit(data) {
+    // console.log(data);
+    const response = await fetch("https://site--sih-project-backend-service--kg8rzzj68k4g.code.run/formsubmit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }, // send JSON
+      body: JSON.stringify(data), // form fields -> JSON string
+    });
+
+    const Data = await response.json();
+
+    setAlertMessage(Data.message)
+    setAlert(true)
+
+
+  }
+
   return (
-    <div className="container-fluid mt-5 ps-5 w-100">
+    <>
+    {alert && <AutoDismissAlert message={alertMessage} onClose={() => setAlert(false)} />}
+    <div className="light-dark container-fluid mt-5 ps-5 w-100">
       <h2 className="mb-4 text-center">Admission Form</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="p-4 border rounded shadow w-100">
+      <form onSubmit={handleSubmit(handleFormSubmit)} className="p-4 border bg-light rounded shadow w-100">
 
         {/* Application Number */}
         <div className="row mb-3">
@@ -142,15 +165,15 @@ function FormLogin({formData}) {
           <label className="col-sm-3 col-form-label">Gender:</label>
           <div className="col-sm-9 d-flex align-items-center gap-3">
             <div className="form-check">
-              <input type="radio" value="Male" className="form-check-input" {...register("gender", { required: "Gender is required" })}/>
+              <input type="radio" value="Male" className="form-check-input" {...register("gender", { required: "Gender is required" })} />
               <label className="form-check-label">Male</label>
             </div>
             <div className="form-check">
-              <input type="radio" value="Female" className="form-check-input" {...register("gender")}/>
+              <input type="radio" value="Female" className="form-check-input" {...register("gender")} />
               <label className="form-check-label">Female</label>
             </div>
             <div className="form-check">
-              <input type="radio" value="Transgender" className="form-check-input" {...register("gender")}/>
+              <input type="radio" value="Transgender" className="form-check-input" {...register("gender")} />
               <label className="form-check-label">Transgender</label>
             </div>
             {errors.gender && <div className="text-danger">{errors.gender.message}</div>}
@@ -300,9 +323,10 @@ function FormLogin({formData}) {
               type="number"
               className={`form-control ${errors.mobileNumber ? "is-invalid" : ""}`}
               placeholder="Mobile Number"
-              {...register("mobileNumber", { required: "Mobile Number is required"
-                
-               })}
+              {...register("mobileNumber", {
+                required: "Mobile Number is required"
+
+              })}
             />
             {errors.mobileNumber && (
               <div className="invalid-feedback">{errors.mobileNumber.message}</div>
@@ -320,6 +344,7 @@ function FormLogin({formData}) {
         </div>
       </form>
     </div>
+    </>
   );
 }
 
