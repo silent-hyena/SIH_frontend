@@ -1,7 +1,8 @@
 import './App.css'
 
 import { Routes, Route,useLocation  } from 'react-router-dom'
-import useEffect from "react"
+
+import { useEffect } from "react";
 import NewAdmission from './NewAdmission.jsx'
 import Home from './Home.jsx'
 
