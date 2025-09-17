@@ -63,8 +63,16 @@ function Navbar() {
                                 <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Institue</a>
                                 <ul className="dropdown-menu dropdown-menu-end">
                                     <Link className="dropdown-item" to="/institute/history">History</Link>
-                                    <Link className="dropdown-item" to="/institute/location">Location</Link>
 
+                                    
+                                    <a
+                                        className="dropdown-item"
+                                        href="https://maps.app.goo.gl/5aSL4Hg6Gruxy42TA"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Location
+                                    </a>
 
                                 </ul>
                             </li>

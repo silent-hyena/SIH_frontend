@@ -1,12 +1,24 @@
 import './App.css'
 
-import { Routes, Route } from 'react-router-dom'
-
+import { Routes, Route,useLocation  } from 'react-router-dom'
+import useEffect from "react"
 import NewAdmission from './NewAdmission.jsx'
 import Home from './Home.jsx'
 
+function usePageTracking() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag("config", "G-6P7CYRW1TG", {
+        page_path: location.pathname,
+      });
+    }
+  }, [location]);
+}
 
 function App() {
+   usePageTracking()
   
   return (
     <>
