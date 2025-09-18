@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import { BsHouse } from "react-icons/bs";
+
 
 
 function Navbar() {
@@ -80,8 +80,8 @@ function Navbar() {
                                 {/* <Link className="nav-link" to="/Faculty">Faculty</Link> */}
                                 <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Faculty</a>
                                 <ul className="dropdown-menu dropdown-menu-end">
-                                    <Link className="dropdown-item" to="/admin/login">Admin Login</Link>
-                                    <Link className="dropdown-item" to="/professor/login">Professor Login</Link>
+                                    <Link className="dropdown-item" to="/staff/login">Staff Login</Link>
+                                    
 
 
 
