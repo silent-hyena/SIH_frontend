@@ -12,6 +12,7 @@ import History from './History.jsx';
 import PostgraduatePrograms from './Postgraduate.jsx';
 import UndergraduatePrograms from './Undergraduate.jsx';
 import FeeStructure from './FeeStructure.jsx';
+import AcademicCalendar from './AcademicCalendar.jsx';
 
 function usePageTracking() {
   const location = useLocation();
@@ -49,6 +50,7 @@ function App() {
               {/* <Route path="/professor/login" element={<Home />} /> */}
               <Route path="/staffadminpage" element={<AdminPage />} />
               <Route path="/dashboard" element={<Home />} />
+              <Route path="/academicCalendar" element={<AcademicCalendar />} />
             </Routes>
           </div>
 

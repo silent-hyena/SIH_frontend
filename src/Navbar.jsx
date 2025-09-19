@@ -94,7 +94,7 @@ function Navbar() {
                                 <ul className="dropdown-menu dropdown-menu-end">
 
                                     <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
-
+                                    <Link className="dropdown-item" to="/academicCalendar">Calendar</Link>
                                 </ul>
                             </li>
 
