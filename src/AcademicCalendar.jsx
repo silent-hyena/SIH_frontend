@@ -4,7 +4,8 @@ import Navbar from './Navbar.jsx';
 
 const AcademicCalendar = () => {
   return (
-    <div>    <Navbar />
+    <>  
+      <Navbar />
     <div className="calendar-container">
       <h2 className="calendar-title">Academic Calendar - Current Semester</h2>
       <p className="calendar-intro">
@@ -97,9 +98,10 @@ const AcademicCalendar = () => {
         </table>
       </div>
     </div>
-</div>
+</>
 
   );
 };
 
 export default AcademicCalendar;
+
