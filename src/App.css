@@ -201,7 +201,7 @@ body.dark .carousel-item img:hover {
 
 /* ==== NAVBAR ==== */
 .navbar {
-  background-color: #89CFF3 !important;
+  background-color: #f59e0b !important;
   /* dark blue navbar */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #545f6f !important;
@@ -221,7 +221,7 @@ body.dark .carousel-item img:hover {
 
 /* ==== DROPDOWN ==== */
 .navbar .dropdown-menu {
-  background-color: #89CFF3;
+  background-color: #ecb455;
   /* white dropdown */
   /* border: 1px solid #e9ecef;  */
 }
