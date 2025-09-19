@@ -6,7 +6,7 @@ import Footer from "./AppFooter";
 import Banner from "./Carousel";
 import QuickAccess from "./QuickAcess";
 
-
+import './Home.css'
 
 function Home() {
 
