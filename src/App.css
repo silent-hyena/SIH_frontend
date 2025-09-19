@@ -254,23 +254,64 @@ body.dark .carousel-item img:hover {
 
 
 
-/* QUICK LINK */
+/* QUICK LINK
+/* QuickAccess.css */
+
+/* .quick-access-section {
+  background: #f8fafc; 
+  padding: 3rem 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+} */
+
+.quick-access-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
 .quick-access-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border-top: 6px solid #2563eb; /* royal blue accent */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  background-color: #ffffff; /* Light background by default */
+  cursor: pointer;
 }
 
 .quick-access-card:hover {
-  background-color: #cccccc; /* Bootstrap dark background */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25); /* Shadow */
-  transform: translateY(-4px); /* Optional: subtle lift effect */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border-top-color: #f59e0b; /* amber hover accent */
 }
 
-.quick-access-card:hover .card-title,
-.quick-access-card:hover .card-text,
-.quick-access-card:hover svg {
-  color: #ffffff !important; /* Make text and icons white */
+.quick-access-card .card-body {
+  padding: 2rem 1.2rem;
 }
+
+.quick-access-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.6rem;
+}
+
+.quick-access-card .card-text {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.quick-access-card .text-primary {
+  color: #2563eb !important;
+  transition: color 0.3s ease;
+}
+
+.quick-access-card:hover .text-primary {
+  color: #f59e0b !important;
+} */
+
 
 
 /* FOOTER */
