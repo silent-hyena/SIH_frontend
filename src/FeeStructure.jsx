@@ -1,6 +1,8 @@
 import React from "react";
 import "./FeeStructure.css";
-
+import Navbar from "./Navbar";
+import Footer
+ from "./AppFooter";
 const FeeStructure = () => {
   const ugFees = [
     { category: "Tuition Fees (per year)", amount: "₹ 60,000" },
@@ -19,6 +21,8 @@ const FeeStructure = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="fee-container">
       <h1 className="fee-title">Fee Structure</h1>
       <p className="fee-intro">
@@ -69,6 +73,8 @@ const FeeStructure = () => {
         </table>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

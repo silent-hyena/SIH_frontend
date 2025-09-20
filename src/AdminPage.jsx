@@ -30,13 +30,13 @@ function AdminPage() {
 
                             <div className="nav-item ms-3 gy-0">
                                 <Link className="nav-link d-flex align-items-center gap-2" to="/">
-                                    <FaUsers /> User Management & Roles
+                                    <FaUsers className="w-25" /> User Management & Roles
                                 </Link>
                             </div>
 
                             <div className="nav-item ms-3 gy-0">
                                 <Link className="nav-link d-flex align-items-center gap-2" to="/">
-                                    <FaBullhorn /> Notices & Announcements
+                                    <FaBullhorn className="w-25" /> Notices & Announcements
                                 </Link>
                             </div>
 

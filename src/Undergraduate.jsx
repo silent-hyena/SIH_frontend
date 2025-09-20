@@ -1,5 +1,7 @@
 import React from "react";
 import "./Undergraduate.css";
+import Navbar from "./Navbar";
+import Footer from "./AppFooter";
 
 const UndergraduatePrograms = () => {
   const programs = [
@@ -34,6 +36,8 @@ const UndergraduatePrograms = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="ug-container">
       <h1 className="ug-title">Undergraduate Programs</h1>
       <p className="ug-intro">
@@ -58,6 +62,8 @@ const UndergraduatePrograms = () => {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

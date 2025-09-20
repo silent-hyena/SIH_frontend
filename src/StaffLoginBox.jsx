@@ -1,37 +1,54 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Navbar from "./Navbar";
+import AutoDismissAlert from "./AutoDismissedAlert";
 
 export default function StaffLogin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [alert,setAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(null)
+  const [alertType, setAlertType] = useState("success")
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/staffadminpage");
+  async function onSubmit(data){
+    
 
-    // ✅ Dummy login check (replace with API call)
-    // if (email === "staff@example.com" && password === "admin123") {
-    //   localStorage.setItem("auth_staff", "true");
-    //   navigate("/staffadminpage"); // navigate to staff dashboard
-    // } else {
-    //   setError("Invalid credentials. Try staff@example.com / admin123");
-    // }
+    const response = await fetch("https://site--sih-project-backend-service--kg8rzzj68k4g.code.run/staff/portallogin", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" }, 
+      body: JSON.stringify(data), 
+    });
+
+    const Data = await response.json();
+    if(Data.status =="success"){
+      navigate("/staffadminpage")
+      // console.log(Data)
+    }
+    else{
+      setAlertMessage(Data.alert)
+      setAlertType("failue")
+      setAlert(true);
+    }
+    
   };
 
   return (
     <>
+       {alert && <AutoDismissAlert message={alertMessage} type ={alertType} onClose={() => setAlert(false)} />}
       <Navbar />
       <div className="container-fluid vh-100 d-flex align-items-center">
         <div className="row w-100">
-          {/* 🔹 Left Intro Section (hidden on small screens) */}
+          {/* 🔹 Left Intro Section */}
           <div className="col-md-6 d-none d-md-flex flex-column justify-content-center px-5">
-            <h1
-              className="fw-bold mb-3"
-              style={{ color: "#0d1b2a" }} // dark navy blue
-            >
+            <h1 className="fw-bold mb-3" style={{ color: "#0d1b2a" }}>
               Staff Portal
             </h1>
             <p className="fs-5 text-muted" style={{ maxWidth: "500px" }}>
@@ -49,7 +66,9 @@ export default function StaffLogin() {
               style={{ maxWidth: "400px", width: "100%" }}
             >
               <h3 className="text-center mb-4">Staff Login</h3>
-              <form onSubmit={handleSubmit}>
+
+              <form onSubmit={handleSubmit(onSubmit)}>
+                {/* Email */}
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email address
@@ -57,14 +76,18 @@ export default function StaffLogin() {
                   <input
                     type="email"
                     id="email"
-                    className="form-control"
+                    className={`form-control ${errors.email ? "is-invalid" : ""}`}
                     placeholder="Enter staff email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
+                    {...register("email", { required: "Email is required" })}
                   />
+                  {errors.email && (
+                    <div className="invalid-feedback">
+                      {errors.email.message}
+                    </div>
+                  )}
                 </div>
 
+                {/* Password */}
                 <div className="d-flex justify-content-between align-items-center mb-1">
                   <label htmlFor="password" className="form-label mb-0">
                     Password
@@ -81,18 +104,18 @@ export default function StaffLogin() {
                   <input
                     type="password"
                     id="password"
-                    className="form-control"
+                    className={`form-control ${errors.password ? "is-invalid" : ""}`}
                     placeholder="Enter password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
+                    {...register("password", { required: "Password is required" })}
                   />
+                  {errors.password && (
+                    <div className="invalid-feedback">
+                      {errors.password.message}
+                    </div>
+                  )}
                 </div>
 
-                {error && (
-                  <div className="alert alert-danger py-2">{error}</div>
-                )}
-
+                {/* Submit */}
                 <button type="submit" className="btn btn-primary w-100">
                   Login
                 </button>

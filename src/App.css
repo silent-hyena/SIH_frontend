@@ -239,9 +239,9 @@ body.dark .carousel-item img:hover {
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #578FCA;
+  background-color: rgb(255, 166, 0);
   /* dark blue hover */
-  color: black;
+  color: rgb(15, 14, 14) !important;
 }
 
 /* ==== GLOBAL FONT ==== */

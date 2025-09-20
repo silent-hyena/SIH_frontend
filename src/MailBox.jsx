@@ -13,9 +13,7 @@ export default function EmailForm() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    setAlertMessage("Email sent.");
-      setAlert(true);
-      return;
+    
 
     const recipients = data.recipients
       .split(",")
@@ -23,15 +21,16 @@ export default function EmailForm() {
       .filter((email) => email.length > 0);
 
     const payload = {
-      apiKey: data.apiKey,
+      
       emailSub: data.subject,
       emailBody: data.body,
       recipients,
     };
 
-    try {
-      const res = await fetch("http://localhost:3000/emailservice/sendmail", {
+    try {                      
+      const res = await fetch("https://site--sih-project-backend-service--kg8rzzj68k4g.code.run/emailservice/sendmail", {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
@@ -63,21 +62,7 @@ export default function EmailForm() {
         >
           <h3 className="text-center mb-3 pt-0 mt-0 fw-bold text-primary">Compose Email</h3>
 
-          {/* API Key */}
-          {/* <div className="mb-4">
-            <label className="form-label fw-semibold">API Key</label>
-            <input
-              type="text"
-              {...register("apiKey", { required: true })}
-              className={`form-control form-control-lg ${
-                errors.apiKey ? "is-invalid" : ""
-              }`}
-              placeholder="Enter SendGrid API Key"
-            />
-            {errors.apiKey && (
-              <div className="invalid-feedback">API key is required</div>
-            )}
-          </div> */}
+
 
           {/* Email Subject */}
           <div className="mb-4">

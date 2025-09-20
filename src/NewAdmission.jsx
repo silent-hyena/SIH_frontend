@@ -1,11 +1,12 @@
 // import { Link } from "react-router-dom"
 import { useState } from "react"
 import Navbar from "./Navbar"
-import FormLogin from "./Form.jsx"
+import FormLogin from "./AdmissionForm.jsx"
+import ApplicationFormCheck from "./AdmissionStatus.jsx"
 import openRazorpay from "./Razorpay"
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { FaHome, FaUserGraduate, FaMoneyBillWave, FaWpforms, FaCreditCard } from "react-icons/fa"; // Font Awesome icons
+import { FaHome, FaUserGraduate, FaMoneyBillWave, FaWpforms,FaClipboardCheck, FaCreditCard } from "react-icons/fa"; // Font Awesome icons
 
 import AutoDismissAlert from "./AutoDismissedAlert";
 
@@ -13,6 +14,7 @@ import AutoDismissAlert from "./AutoDismissedAlert";
 function NewAdmission() {
     const [showAdmissionform, setShowAdmissionForm] = useState(false)
     const [showpayment, setShowPayment] = useState(false);
+    const [showApplcationStatus,setApplicationStatus] = useState(false)
     const [alert, setAlert] = useState(false)
     const [alertMessage, setAlertMessage] = useState(null)
 
@@ -21,13 +23,20 @@ function NewAdmission() {
     function handleFormBtn() {
         setShowAdmissionForm(!showAdmissionform);
         setShowPayment(false);
+        setApplicationStatus(false);
     }
 
     function handlePaymentBtn() {
         setShowAdmissionForm(false);
         setShowPayment(!showpayment);
+        setApplicationStatus(false);
         // window.location.href = "..Frontend/razorpay.html";
 
+    }
+    function handleFormCheck(){
+        setApplicationStatus(true);
+        setShowAdmissionForm(false);
+        setShowPayment(false);
     }
 
 
@@ -88,8 +97,10 @@ function NewAdmission() {
                             </div>
 
                         </ul>
+                        <button className="w-100 mt-3 ms-4 sidebar-btn d-flex align-items-center gap-2" onClick={handleFormCheck} style={{ backgroundColor: "#f8f9fa" }}><FaClipboardCheck/>Check Status</button>
 
                         <button className="w-100 mt-3 ms-4 sidebar-btn d-flex align-items-center gap-2" onClick={handleFormBtn} style={{ backgroundColor: "#f8f9fa" }}><FaWpforms/>Fill Admission Form</button>
+
                         <button className="w-100 mt-3 ms-4 sidebar-btn d-flex align-items-center gap-2" onClick={handlePaymentBtn} style={{ backgroundColor: "#f8f9fa" }}><FaCreditCard/>Make Payment</button>
 
                     </nav>
@@ -152,6 +163,13 @@ function NewAdmission() {
                 {showAdmissionform && (
                     <div className="container-fluid">
                         <FormLogin />
+                    </div>
+                )}
+
+                {/* Application status */}
+                {showApplcationStatus && (
+                    <div className="container-fluid">
+                        <ApplicationFormCheck />
                     </div>
                 )}
 

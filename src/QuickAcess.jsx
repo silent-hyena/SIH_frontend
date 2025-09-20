@@ -34,7 +34,7 @@ const QuickAccess = () => {
           </div>
 
           <div className="col-12 col-md-6 col-lg-3">
-            <Link to="/" className="text-decoration-none text-dark">
+            <Link to="/staff/login" className="text-decoration-none text-dark">
               <div className="card text-center h-100 quick-access-card transition">
                 <div className="card-body p-4">
                   <FaUserCheck size={40} className="text-primary mb-3" />

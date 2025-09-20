@@ -67,9 +67,10 @@ function FormLogin() {
 
   async function handleFormSubmit(data) {
     // console.log(data);
-    const formUrl = "https://site--sih-project-backend-service--kg8rzzj68k4g.code.run/formsubmit"
+    const formUrl = "https://site--sih-project-backend-service--kg8rzzj68k4g.code.run/admission/formsubmit"
     const response = await fetch(formUrl, {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" }, // send JSON
       body: JSON.stringify(data), // form fields -> JSON string
     });

@@ -25,11 +25,11 @@ function AutoDismissAlert({ message, type = "success", duration = 3000, onClose 
         minHeight:"50px",
         minWidth: "250px",
         fontFamily: "monospace",
-        backgroundColor: type === "success" ? "#9be8adff" : "#dd7e87ff",
+        backgroundColor: type === "success" ? "#72fa92ff" : "#ee4152ff",
       }}
     >
       <div className="d-flex">
-        <div className="toast-body">{message}</div>
+        <div className="toast-body text-center fw-normal text-muted fs-4">{message}</div>
         <button
           type="button"
           className="btn-close btn-close-white me-2 m-auto"
